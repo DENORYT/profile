@@ -3,7 +3,9 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "build": "node scripts/publish.mjs"
+    "build": "node scripts/publish.mjs",
+    "deploy": "npm run build && npx wrangler deploy",
+    "deploy:pages": "npm run build && npx wrangler pages deploy dist"
   },
   "engines": {
     "node": ">=18"

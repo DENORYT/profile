@@ -6,11 +6,13 @@ Run `python serve.py 8768` and open http://localhost:8768/. Edit `portfolio.conf
 
 ## Cloudflare Pages free tier
 
-Use these project settings:
+For a Git-connected **Pages** project, use these project settings:
 
 - Framework preset: **None**
 - Build command: `npm run build`
 - Build output directory: `dist`
 - Root directory: `/`
 
-The build publishes only the optimized `dist/` folder. The deployment is a static site with no server functions or paid services. You can also deploy with Wrangler using `npx wrangler pages deploy dist` after `npm run build`.
+The build publishes only the optimized `dist/` folder. Leave any custom **Deploy command** empty in Pages; Pages runs the build command and publishes the output directory.
+
+If you are using the Cloudflare **Workers** build screen shown in the deployment log, the repository also supports its exact command: `npx wrangler deploy`. The `wrangler.toml` file points Wrangler at the static `dist/` assets. Alternatively, run `npm run deploy` locally or use `npm run deploy:pages` for a direct Pages upload.
