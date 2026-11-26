@@ -1,0 +1,11 @@
+{
+  "name": "sujal-balpande-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node scripts/publish.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
