@@ -77,8 +77,8 @@ const chroma = (value) => Math.hypot(lab(value)[1], lab(value)[2]);
 const mix = (a, b, t) => `#${hex(a).map((v, n) => Math.round(v * (1 - t) + hex(b)[n] * t).toString(16).padStart(2, "0")).join("")}`;
 
 const DEFAULT_THEME = "blackmoney";
-const THEME_KEY = "portfolio.scheme";
-const WORM_KEY = "portfolio.worm";
+const THEME_KEY = "sujal.scheme";
+const WORM_KEY = "sujal.worm";
 let currentTheme = DEFAULT_THEME;
 let openEntry = null;
 let booted = false;
@@ -147,6 +147,8 @@ const entries = [
   { id: "about", label: "whoami", kind: "about", tile: "about" },
   ...projectEntries.filter((entry) => !entry.parent),
   { id: "work", label: "work/", kind: "work", tile: "work" },
+  ...(content.education?.length ? [{ id: "education", label: "education/", kind: "education", tile: "work" }] : []),
+  ...(content.certifications?.length ? [{ id: "certifications", label: "certs/", kind: "certifications", tile: "work" }] : []),
   { id: "talks", label: "talks/", kind: "talks", tile: "talks" },
   ...(childrenOf("more").length ? [{ id: "more", label: "more/", kind: "more" }] : []),
   ...(stack ? [{ id: "stack", label: "stack/", kind: "stack", tile: "stack" }] : []),
@@ -382,6 +384,7 @@ function stackSpec() {
     branch: null,
     blocks: [
       { cmd: "stack --languages", out: lang },
+      ...(stack.skills?.length ? [{ cmd: "stack --skills", out: [...grid(stack.skills.map((name) => ({ name })), 24), { segments: ["profile skills", "  · ", ["Sujal Balpande", "t-key"]], className: "t-dim" }] }] : []),
       {
         cmd: "stack --tools",
         out: [...grid(stack.tools, 12), { segments: ["numbers: repos with evidence (files, topics, names)"], className: "t-dim" }],
@@ -391,6 +394,21 @@ function stackSpec() {
       calendarBlock(),
     ],
   };
+}
+
+function educationSpec() {
+  const list = content.education || [];
+  const out = list.flatMap((item) => [
+    { segments: [[item.when.padEnd(24), "t-dim"], [item.school, "t-key"]] },
+    { segments: [[" ".repeat(24)], [item.degree + (item.focus ? " · " + item.focus : "")]], className: "t-hang" },
+  ]);
+  return { cwd: "~/education", branch: null, blocks: [{ cmd: "fetch education/", out: [fact("entries", list.length)] }, { cmd: "cat education.log", out }] };
+}
+
+function certificationsSpec() {
+  const list = content.certifications || [];
+  const out = list.map((item, index) => ({ segments: [[String(index + 1).padStart(2, "0") + "  ", "t-dim"], [item, "t-key"]] }));
+  return { cwd: "~/certifications", branch: null, blocks: [{ cmd: "fetch certifications/", out: [fact("credentials", list.length)] }, { cmd: "cat credentials.log", out }] };
 }
 
 
@@ -537,6 +555,8 @@ function moreSpec() {
 
 function textOf(entry) {
   if (entry.kind === "work") return (content.work || []).map((item) => `${item.title} ${item.org || ""} ${item.desc || ""}`).join(" ");
+  if (entry.kind === "education") return (content.education || []).map((item) => `${item.school} ${item.degree} ${item.focus || ""}`).join(" ");
+  if (entry.kind === "certifications") return (content.certifications || []).join(" ");
   if (entry.kind === "talks") return (content.talks || []).map((item) => `${item.name} ${item.place} ${item.desc || ""}`).join(" ");
   if (entry.kind === "more") return childrenOf("more").map((child) => `${child.data.repo} ${child.data.description || ""}`).join(" ");
   if (entry.kind === "project") return [entry.data.repo, entry.data.description, entry.data.language, entry.data.lines.join(" ")].join(" ");
@@ -552,6 +572,8 @@ function barView(entry) {
   }
   if (entry.kind === "themes") return [["THEMES", String(themes.length)], ["BUILT-IN", String(themes.filter((theme) => theme.included).length)]];
   if (entry.kind === "work") return [["ROLES", String((content.work || []).filter((item) => item.kind !== "talk").length)], ["SINCE", "2021"], ["NOW", "ALBY"]];
+  if (entry.kind === "education") return [["SCHOOLS", String((content.education || []).length)], ["FOCUS", "CYBER"]];
+  if (entry.kind === "certifications") return [["CREDENTIALS", String((content.certifications || []).length)], ["FIELD", "SECURITY"]];
   if (entry.kind === "talks") return [["TALKS", String((content.talks || []).length)], ["COUNTRIES", "4"], ["SINCE", "2022"]];
   if (entry.kind === "more") return [["PROJECTS", String(childrenOf("more").length)]];
   if (entry.kind === "stack") return [["LANGS", String(stack.languages.length)], ["TOOLS", String(stack.tools.length)], ["AI", String(stack.ai?.length ?? 0)]];
@@ -594,6 +616,16 @@ function open(entry) {
     winbar.textContent = orgs.length ? `work/ — ${orgs.join(" · ")}` : "work/";
     tabFile.textContent = "/work/";
     terminal.show(workSpec());
+    cleanup = () => terminal.destroy();
+  } else if (entry.kind === "education") {
+    winbar.textContent = `education/ — ${(content.education || []).length} entries`;
+    tabFile.textContent = "/education/";
+    terminal.show(educationSpec());
+    cleanup = () => terminal.destroy();
+  } else if (entry.kind === "certifications") {
+    winbar.textContent = `certifications/ — ${(content.certifications || []).length} credentials`;
+    tabFile.textContent = "/certifications/";
+    terminal.show(certificationsSpec());
     cleanup = () => terminal.destroy();
   } else if (entry.kind === "talks") {
     winbar.textContent = `talks/ — ${(content.talks || []).length} talks`;

@@ -1,29 +1,28 @@
 {
- "owner": "alexrivera",
- "fetchedAt": "2026-11-25T09:11:39.315Z",
+ "owner": "DENORYT",
+ "fetchedAt": "2026-11-26T18:04:56.764Z",
  "about": {
-  "repo": "alexrivera",
+  "repo": "DENORYT",
   "lines": [
-   "# Alex Rivera",
+   "# Sujal Balpande",
    "",
-   "Systems and full-stack engineer building developer tools, distributed storage engines, and open-source software.",
+   "With a foundation in Cyber/Computer Forensics and Counterterrorism, I work across penetration testing, cyber security risk, ICT security, vulnerability management, and threat intelligence. I’m passionate about helping teams stay ahead of emerging threats and preparing security systems for the quantum era.",
    "",
-   "San Francisco · Open Source",
+   "Greater Nagpur Area · India",
    "",
-   "[GitHub](https://github.com/alexrivera)",
-   "[LinkedIn](https://www.linkedin.com/in/alexrivera)",
-   "[X / Twitter](https://x.com/alexrivera)",
-   "[Blog](https://alexrivera.dev/blog)"
+   "[Email](mailto:sujalbalpande617@gmail.com)",
+   "[LinkedIn](https://www.linkedin.com/in/sujal-balpande-37275132a/)",
+   "[Topmate](https://topmate.io/sujal_balpande/)"
   ]
  },
  "projects": [
   {
-   "repo": "pulsedb",
-   "url": "https://github.com/alexrivera/pulsedb",
-   "description": "An embedded time-series storage engine written in Rust with sub-millisecond range queries and vectorized compression.",
-   "tag": "Database · Rust",
+   "repo": "orchastryx",
+   "url": "https://www.linkedin.com/posts/sujal-balpande-37275132a_cybersecurity-quantumresilience-threatintel-activity-7372384050155790336-_Yiw",
+   "description": "A research introduction to quantum resilience and threat intelligence.",
+   "tag": "Quantum resilience",
    "stars": null,
-   "language": "Rust",
+   "language": null,
    "pushed": null,
    "forks": null,
    "watchers": null,
@@ -34,132 +33,28 @@
    "commits": null,
    "files": null,
    "counts": {},
-   "github": "https://github.com/alexrivera/pulsedb",
-   "stack": [
-    "Rust",
-    "SQLite",
-    "WebAssembly",
-    "TypeScript"
-   ],
-   "images": [
-    {
-     "file": "shots/project-1.svg",
-     "source": "shots/project-1.svg",
-     "alt": "PulseDB screenshot 1",
-     "xray": false
-    }
-   ],
-   "lines": [
-    "# PulseDB",
-    "",
-    "\u0001IMG0\u0001",
-    "",
-    "### An embedded time-series storage engine written in Rust with sub-millisecond range queries and vectorized compression.",
-    "",
-    "PulseDB is a lightweight embedded time-series database designed for edge",
-    "telemetry and local developer metrics. It features gorilla-style delta",
-    "encoding, memory-mapped segment files, and a zero-allocation query iterator.",
-    "",
-    "Built with Rust · SQLite · WebAssembly · TypeScript",
-    "",
-    "[Visit](https://github.com/alexrivera/pulsedb)"
-   ]
-  },
-  {
-   "repo": "termflow",
-   "url": "https://github.com/alexrivera/termflow",
-   "description": "A fast terminal multiplexer and task runner with live dependency graphs and structured log filtering.",
-   "tag": "CLI · Go",
-   "stars": null,
-   "language": "Go",
-   "pushed": null,
-   "forks": null,
-   "watchers": null,
-   "issues": null,
-   "license": null,
-   "created": null,
-   "branch": "main",
-   "commits": null,
-   "files": null,
-   "counts": {},
-   "github": "https://github.com/alexrivera/termflow",
-   "stack": [
-    "Go",
-    "Terminal",
-    "Docker",
-    "Linux"
-   ],
-   "images": [
-    {
-     "file": "shots/project-2.svg",
-     "source": "shots/project-2.svg",
-     "alt": "TermFlow screenshot 1",
-     "xray": false
-    }
-   ],
-   "lines": [
-    "# TermFlow",
-    "",
-    "\u0001IMG0\u0001",
-    "",
-    "### A fast terminal multiplexer and task runner with live dependency graphs and structured log filtering.",
-    "",
-    "TermFlow orchestrates local microservices and build pipelines from a single",
-    "declarative manifest. It streams colorized output, detects port conflicts",
-    "automatically, and exports execution timelines.",
-    "",
-    "Built with Go · Terminal · Docker · Linux",
-    "",
-    "[Visit](https://github.com/alexrivera/termflow)"
-   ]
-  },
-  {
-   "repo": "tracekit",
-   "url": "https://github.com/alexrivera/tracekit",
-   "description": "Zero-overhead OpenTelemetry trace viewer that runs entirely in the browser from JSONL trace dumps.",
-   "tag": "Observability · TypeScript",
-   "stars": null,
-   "language": "TypeScript",
-   "pushed": null,
-   "forks": null,
-   "watchers": null,
-   "issues": null,
-   "license": null,
-   "created": null,
-   "branch": "main",
-   "commits": null,
-   "files": null,
-   "counts": {},
-   "github": "https://github.com/alexrivera/tracekit",
-   "stack": [
-    "TypeScript",
-    "React",
-    "Canvas",
-    "OpenTelemetry"
-   ],
+   "github": null,
+   "stack": [],
    "images": [],
    "lines": [
-    "# TraceKit",
+    "# Orchastryx",
     "",
     "",
-    "### Zero-overhead OpenTelemetry trace viewer that runs entirely in the browser from JSONL trace dumps.",
+    "### A research introduction to quantum resilience and threat intelligence.",
     "",
-    "TraceKit lets engineers inspect distributed traces locally without spinning",
-    "up heavy observability backends. Drop a trace file into the browser and",
-    "inspect flamegraphs, critical paths, and span attributes.",
+    "What does the arrival of quantum computing mean for the systems we protect",
+    "today? Read my introduction to Orchastryx.",
     "",
-    "Built with TypeScript · React · Canvas · OpenTelemetry",
-    "",
-    "[Visit](https://github.com/alexrivera/tracekit)"
+    "[Visit](https://www.linkedin.com/posts/sujal-balpande-37275132a_cybersecurity-quantumresilience-threatintel-activity-7372384050155790336-_Yiw)"
    ]
   },
   {
-   "repo": "schemasync",
-   "url": "https://github.com/alexrivera/schemasync",
-   "description": "Automated database migration validator that catches breaking schema changes and missing indexes in CI.",
-   "tag": "Tooling · Python",
+   "repo": "security-architecture",
+   "url": "https://www.linkedin.com/posts/sujal-balpande-37275132a_certificate-of-completion-activity-7332111878757699585-llKQ",
+   "description": "My study of cybersecurity architecture.",
+   "tag": "Learning notes",
    "stars": null,
-   "language": "Python",
+   "language": null,
    "pushed": null,
    "forks": null,
    "watchers": null,
@@ -170,102 +65,19 @@
    "commits": null,
    "files": null,
    "counts": {},
-   "github": "https://github.com/alexrivera/schemasync",
-   "stack": [
-    "Python",
-    "PostgreSQL",
-    "GitHub Actions"
-   ],
+   "github": null,
+   "stack": [],
    "images": [],
    "lines": [
-    "# SchemaSync",
+    "# Security architecture",
     "",
     "",
-    "### Automated database migration validator that catches breaking schema changes and missing indexes in CI.",
+    "### My study of cybersecurity architecture.",
     "",
-    "SchemaSync parses SQL and ORM migrations in pull requests, simulates lock",
-    "contention against production table statistics, and posts actionable safety",
-    "reports.",
+    "I completed Microsoft Press’s SC-100 preparation course. This note records",
+    "that coursework.",
     "",
-    "Built with Python · PostgreSQL · GitHub Actions",
-    "",
-    "[Visit](https://github.com/alexrivera/schemasync)"
-   ]
-  },
-  {
-   "repo": "minikv",
-   "url": "https://github.com/alexrivera/minikv",
-   "description": "A minimal Raft-backed key-value store built to explore consensus algorithms and deterministic simulation testing.",
-   "tag": "Storage · C",
-   "stars": null,
-   "language": "C",
-   "pushed": null,
-   "forks": null,
-   "watchers": null,
-   "issues": null,
-   "license": null,
-   "created": null,
-   "branch": "main",
-   "commits": null,
-   "files": null,
-   "counts": {},
-   "github": "https://github.com/alexrivera/minikv",
-   "stack": [
-    "C",
-    "Networking",
-    "Raft"
-   ],
-   "images": [],
-   "lines": [
-    "# MiniKV",
-    "",
-    "",
-    "### A minimal Raft-backed key-value store built to explore consensus algorithms and deterministic simulation testing.",
-    "",
-    "MiniKV implements leader election, log replication, and snapshot compaction",
-    "in under 2,000 lines of C with a deterministic network simulator.",
-    "",
-    "Built with C · Networking · Raft",
-    "",
-    "[Visit](https://github.com/alexrivera/minikv)"
-   ]
-  },
-  {
-   "repo": "dotfiles",
-   "url": "https://github.com/alexrivera/dotfiles",
-   "description": "Modular Neovim, Fish shell, and tmux configuration tuned for fast keyboard-driven development.",
-   "tag": "Config · Neovim",
-   "stars": null,
-   "language": "Lua",
-   "pushed": null,
-   "forks": null,
-   "watchers": null,
-   "issues": null,
-   "license": null,
-   "created": null,
-   "branch": "main",
-   "commits": null,
-   "files": null,
-   "counts": {},
-   "github": "https://github.com/alexrivera/dotfiles",
-   "stack": [
-    "Lua",
-    "Neovim",
-    "Shell"
-   ],
-   "images": [],
-   "lines": [
-    "# Dotfiles",
-    "",
-    "",
-    "### Modular Neovim, Fish shell, and tmux configuration tuned for fast keyboard-driven development.",
-    "",
-    "Cross-platform terminal environment with custom Lua plugins, minimal LSP",
-    "setup, and synchronized color palettes.",
-    "",
-    "Built with Lua · Neovim · Shell",
-    "",
-    "[Visit](https://github.com/alexrivera/dotfiles)"
+    "[Visit](https://www.linkedin.com/posts/sujal-balpande-37275132a_certificate-of-completion-activity-7332111878757699585-llKQ)"
    ]
   }
  ],
@@ -604,83 +416,105 @@
  },
  "work": [
   {
-   "when": "06/2024 – present",
-   "title": "Senior Systems Engineer",
-   "org": "CloudScale",
-   "where": "San Francisco · Hybrid",
-   "desc": "Leading the distributed query execution engine and low-latency telemetry pipeline in Rust and Go.",
-   "url": "https://example.com/cloudscale"
+   "when": "Current",
+   "title": "Penetration Tester",
+   "org": "Cisco",
+   "where": "Greater Nagpur Area · India",
+   "desc": "Working across penetration testing, vulnerability management, cyber security risk, and ICT security to help protect digital assets."
   },
   {
-   "when": "03/2022 – 05/2024",
-   "title": "Software Engineer",
-   "org": "DevFlow",
-   "where": "Remote",
-   "desc": "Built CLI developer tooling, local sandbox runtimes, and real-time build log streaming for 50k+ engineers.",
-   "url": "https://example.com/devflow"
+   "when": "Mar 2026 – Aug 2026",
+   "title": "Forward Learner",
+   "org": "McKinsey & Company",
+   "where": "New York, United States",
+   "desc": "Participated in the Forward learning program, building the tools and perspective needed to thrive in a changing professional landscape."
   },
   {
-   "when": "01/2021 – present",
-   "title": "Core Maintainer",
-   "org": "OpenTrace",
-   "where": "Open source",
-   "desc": "Maintaining open-source distributed tracing SDKs and terminal visualization tools.",
-   "url": "https://github.com/alexrivera"
+   "when": "Feb 2026 – Aug 2026",
+   "title": "Chief Financial Officer",
+   "org": "The DarkNet Community",
+   "where": "India",
+   "desc": "Served as CFO for a computer and network security community."
   },
   {
-   "when": "05/2020 – 08/2020",
-   "title": "Open Source Fellow",
-   "org": "SystemsLab",
-   "where": "Remote",
-   "desc": "Implemented zero-copy serialization primitives and benchmarked memory-mapped storage formats."
+   "when": "Feb 2025 – Sep 2025",
+   "title": "Cyber Security Analyst",
+   "org": "Cybereason",
+   "where": "India",
+   "desc": "Analyzed dark web activity, implemented security measures to protect sensitive information, and collaborated on proactive threat detection and rapid response."
+  },
+  {
+   "when": "Jan 2025 – Feb 2025",
+   "title": "Students Ambassador",
+   "org": "ITM Skills University",
+   "where": "Maharashtra, India",
+   "desc": "Represented the university as a student ambassador."
+  },
+  {
+   "when": "Sep 2024 – Feb 2025",
+   "title": "Cyber Security Analyst",
+   "org": "ANZ",
+   "where": "India",
+   "desc": "Worked as a cyber security analyst."
   }
  ],
- "talks": [
+ "education": [
   {
-   "name": "Systems Conf",
-   "place": "San Francisco, USA",
-   "when": "Oct 2025",
-   "lat": 37.77,
-   "lon": -122.41,
-   "desc": "Building deterministic simulation harnesses for storage engines — catching race conditions before production.",
-   "url": "https://example.com/talk-1",
-   "photos": []
+   "when": "Aug 2026",
+   "school": "DY Patil University",
+   "degree": "B.Tech (CSE) Cyber Security & Forensic – IBM",
+   "focus": "Cyber/Computer Forensics and Counterterrorism"
   },
   {
-   "name": "Open Source Summit",
-   "place": "London, UK",
-   "when": "May 2024",
-   "lat": 51.51,
-   "lon": -0.13,
-   "desc": "Designing zero-dependency developer tools that run fast on every platform.",
-   "url": "https://example.com/talk-2",
-   "photos": []
+   "when": "Jan 2023 – Jul 2025",
+   "school": "ICAD School of LEarning",
+   "degree": "JEE",
+   "focus": "Cyber/Computer Forensics and Counterterrorism"
+  },
+  {
+   "when": "Completed",
+   "school": "Prerna Institute",
+   "degree": "High School Diploma",
+   "focus": "Cyber/Computer Forensics and Counterterrorism"
   }
  ],
+ "certifications": [
+  "ISO 27001 Lead Auditor",
+  "CNSP",
+  "CCEP",
+  "DEF CON Member",
+  "Top 5% on TryHackMe",
+  "Microsoft Cybersecurity Architect (SC-100) — Microsoft Press",
+  "Cyber Security Trainee",
+  "Devfest 2025",
+  "Best in Class",
+  "Prompt to Prototype"
+ ],
+ "skills": [
+  "Cyber Security",
+  "Cyber Security Risk",
+  "ICT Security",
+  "Vulnerability Management",
+  "Threat Intelligence",
+  "Cyber/Computer Forensics",
+  "Counterterrorism",
+  "Business & Entrepreneurship",
+  "Information Technology"
+ ],
+ "talks": [],
  "links": [
   {
    "label": "Email",
-   "url": "mailto:hello@alexrivera.dev"
-  },
-  {
-   "label": "GitHub",
-   "url": "https://github.com/alexrivera"
+   "url": "mailto:sujalbalpande617@gmail.com"
   },
   {
    "label": "LinkedIn",
-   "url": "https://www.linkedin.com/in/alexrivera"
+   "url": "https://www.linkedin.com/in/sujal-balpande-37275132a/"
   },
   {
-   "label": "X / Twitter",
-   "url": "https://x.com/alexrivera"
-  },
-  {
-   "label": "Blog",
-   "url": "https://alexrivera.dev/blog"
+   "label": "Topmate",
+   "url": "https://topmate.io/sujal_balpande/"
   }
  ],
- "more": [
-  "minikv",
-  "dotfiles"
- ]
+ "more": []
 }

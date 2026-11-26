@@ -5,8 +5,9 @@
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CONFIG = JSON.parse(fs.readFileSync(path.join(ROOT, "portfolio.config.json"), "utf8"));
 const FETCH_GH = process.argv.includes("--fetch-github");
 
@@ -83,7 +84,7 @@ function syncIdentity() {
   // site/terminal.js
   let term = read("site/terminal.js");
   term = term
-    .replace(/return \[\["[^"]*", "t-user"\], \["@dev", "t-host"\]/, `return [[${JSON.stringify(ID.terminalUser || "dev")}, "t-user"], ["@dev", "t-host"]`)
+    .replace(/return \[\["[^"]*", "t-user"\], \["@[^"]*", "t-host"\]/, `return [[${JSON.stringify(ID.terminalUser || OWNER)}, "t-user"], [${JSON.stringify("@" + OWNER)}, "t-host"]`)
     .replace(/item\.owner !== "[^"]*"/, `item.owner !== ${JSON.stringify(OWNER)}`);
   write("site/terminal.js", term);
 
@@ -273,7 +274,7 @@ if (FETCH_GH) {
   }
   const site = [];
   for (const s of CONFIG.siteStack || []) site.push({ ...s, icon: await icon(s.name) });
-  write("site/stack.json", { fetchedAt: iso, owner: OWNER, repos: Math.min(owned.length, 80), languages, tools, ai: [], site, source: "GitHub languages API + project stacks" });
+  write("site/stack.json", { fetchedAt: iso, owner: OWNER, repos: Math.min(owned.length, 80), languages, tools, ai: [], skills: CONFIG.skills || [], site, source: "GitHub languages API + project stacks" });
 
   const LEVEL = { NONE: 0, FIRST_QUARTILE: 1, SECOND_QUARTILE: 2, THIRD_QUARTILE: 3, FOURTH_QUARTILE: 4 };
   const cal = gql(`{user(login:"${OWNER}"){followers{totalCount} contributionsCollection(from:"${YEAR}-01-01T00:00:00Z",to:"${iso}"){contributionCalendar{totalContributions weeks{contributionDays{date contributionCount contributionLevel}}}}}}`).user;
@@ -325,6 +326,12 @@ if (FETCH_GH) {
   write("wall.json", wall);
 }
 
+if (!FETCH_GH) {
+  const stack = readJson("site/stack.json");
+  stack.skills = CONFIG.skills || [];
+  write("site/stack.json", stack);
+}
+
 // ---------- 6. content.json & themes.json ----------
 const aboutLines = [
   `# ${ID.name}`,
@@ -332,7 +339,7 @@ const aboutLines = [
   CONFIG.about.bio,
   ...(CONFIG.about.extra ? ["", CONFIG.about.extra] : []),
   "",
-  ...CONFIG.links.filter((l) => !l.url.startsWith("mailto:")).map((l) => `[${l.label}](${l.url})`),
+  ...CONFIG.links.map((l) => `[${l.label}](${l.url})`),
 ];
 const about = { repo: OWNER, lines: aboutLines };
 const themeThumbs = Object.fromEntries(themes.map((t) => [t.slug, `assets/themes/${t.slug}.svg`]));
@@ -345,6 +352,9 @@ write("site/content.json", {
   themeStats: {},
   themeThumbs,
   work: CONFIG.work || [],
+  education: CONFIG.education || [],
+  certifications: CONFIG.certifications || [],
+  skills: CONFIG.skills || [],
   talks: CONFIG.talks || [],
   links: CONFIG.links || [],
   more: MORE,
