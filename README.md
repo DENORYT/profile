@@ -81,3 +81,10 @@ node scripts/build-data.mjs --fetch-github
 ## Deploy
 
 This is a static site. Deploy the root directory directly to **GitHub Pages**, **Vercel**, **Netlify**, or **Cloudflare Pages** with no build command needed.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE) — you are free to use, modify, and publish it for your own personal or commercial portfolio as long as the copyright and license notice are included.
+
