@@ -313,6 +313,16 @@ body {
 }
 
 @media (max-width: 640px) {
+  .stage { height: 100dvh; min-height: 0; }
+  /* The canvas positions controls on its character grid on desktop. Dock
+     them to the safe viewport edges instead on small screens. */
+  .brand { left: max(16px, env(safe-area-inset-left)) !important; top: 12px; min-height: 44px; }
+  .switch.is-solo { right: max(16px, env(safe-area-inset-right)) !important; top: 12px; }
+  .switch.is-solo a { min-height: 44px; min-width: 44px; }
+  .theme-key, .enter { top: auto !important; bottom: max(12px, env(safe-area-inset-bottom)); min-height: 44px; padding-inline: 14px; font-size: 14px; }
+  .theme-key { left: max(12px, env(safe-area-inset-left)) !important; background: var(--bg); }
+  .enter { display: inline-flex; left: auto !important; right: max(12px, env(safe-area-inset-right)); }
+  .note { display: none; }
   .brand span {
     display: inline;
   }

@@ -84,6 +84,7 @@ body {
 .tabline {
   display: none;
 }
+.section-picker { display: none; }
 
 .wheel {
   position: relative;
@@ -1881,6 +1882,23 @@ a.md-link:hover {
   body {
     --margin: 16px;
   }
+}
+
+@media (max-width: 700px) {
+  body { --margin: clamp(10px, 3vw, 20px); }
+  .stage { height: 100dvh; min-height: 0; grid-template-rows: 54px minmax(0, 1fr) var(--bar-h) max(6px, env(safe-area-inset-bottom)); }
+  .brand, .switch { top: 20px; }
+  .eye-host { display: none; }
+  .editor { grid-template-rows: 48px minmax(0, 1fr); }
+  .section-picker { display: flex; align-items: center; gap: 12px; padding-inline: 10px; background: var(--line); color: var(--chrome); }
+  .section-picker select { flex: 1; min-width: 0; min-height: 44px; color: var(--ink); background: var(--line); border: none; font: 16px "Plex Mono", monospace; }
+  .tabline, .editor.is-tree-open .wheel { display: none; }
+  .buffer { min-width: 0; font-size: 14px; line-height: 1.5; }
+  .ln.term { padding-left: 4px; }
+  .ln.term .tx { min-width: 0; overflow-wrap: anywhere; }
+  .buffer:is([data-kind="work"], [data-kind="education"]) .term .tx { white-space: normal; }
+  .buffer:is([data-kind="work"], [data-kind="education"]) .term .tx > .t-dim:first-child { display: block; margin-top: .75em; }
+  .t-hang .tx { padding-left: 0; text-indent: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

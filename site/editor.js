@@ -27,6 +27,7 @@ const winbar = $(".winbar");
 const tabline = $(".tabline");
 const tabFile = $(".tab-file");
 const tabToggle = $(".tab-toggle");
+const sectionPicker = $(".section-picker select");
 const barHost = $(".bar");
 const cmdNode = $(".bar .cmd");
 
@@ -160,6 +161,8 @@ const items = entries.filter((entry) => !entry.parent).map((entry) =>
 );
 
 const bar = createBar(barHost);
+for (const entry of entries) sectionPicker.add(new Option(entry.label.replace(/\/$/, ""), entry.id));
+sectionPicker.addEventListener("change", () => goTo(entries.find(entry => entry.id === sectionPicker.value)));
 let seenAt = 0;
 function loadSeen() {
   if (document.hidden || Date.now() - seenAt < 600e3) return;
@@ -185,7 +188,7 @@ function markSeen() {
 document.addEventListener("visibilitychange", loadSeen);
 loadSeen();
 markSeen();
-const KEYS = { wide: "↑↓ project · ←→ shot · ↩ enter · : cmd", touch: "swipe the wheel · tap to open", closed: "tap ~/Projects ↓ to browse" };
+const KEYS = { wide: "↑↓ project · ←→ shot · ↩ enter · : cmd", touch: "swipe the wheel · tap to open", closed: "choose a section above" };
 const paintKeys = () => bar.setKeys(narrow.matches ? (editor.classList.contains("is-tree-open") ? KEYS.touch : KEYS.closed) : matchMedia("(pointer: fine)").matches ? KEYS.wide : KEYS.touch);
 paintKeys();
 
@@ -586,6 +589,7 @@ function open(entry) {
   cleanup = null;
   hero = null;
   openEntry = entry;
+  sectionPicker.value = entry.id;
   if (entry.parent) lastChild = entry.id;
   history.replaceState(null, "", `#${entry.id}`);
   buffer.scrollTop = 0;
@@ -929,6 +933,7 @@ if (!reduced.matches) await typeCmd(":e ~/Projects", 18);
 wheelHost.classList.add("is-in");
 wheel.form();
 booted = true;
+sectionPicker.disabled = false;
 child = initialEntry.parent ? initialEntry : null;
 wheel.commitNow();
 child = null;
